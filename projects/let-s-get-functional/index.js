@@ -2,6 +2,8 @@
 
 'use strict';
 
+// const { mapValues } = require("lodash");
+
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -19,17 +21,59 @@
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
-var maleCount = function(array) {
-  
+const maleCount = function(array) {
+    const males = _.filter(array, function(customer){
+        return customer.gender === 'male';
+    })
+    return males.length;
+
 };
 
-var femaleCount;
 
-var oldestCustomer;
+// const femaleCount = function(array, num) {
+//     const females = _.reduce(array, customer, num){
+//         return 
+//     }
+// };
 
-var youngestCustomer;
+const oldestCustomer = function(array){
+    let oldestCustomer = '';
+    let oldestCustomerAge = 0;
+    for(var i = 0; i < array.length; i++){
+        if(array[i].age > oldestCustomerAge){
+            oldestCustomer = array[i].name;
+            oldestCustomerAge = array[i].age;
+        }
+    }
+    return oldestCustomer;
+};
 
-var averageBalance;
+const youngestCustomer = function(array){
+    let youngestCustomer = '';
+    let youngestCustomerAge = 100;
+    for(var i = 0; i < array.length; i++){
+        if(array[i].age < youngestCustomerAge){
+            youngestCustomer = array[i].name;
+            youngestCustomerAge = array[i].age;
+        }
+    }
+    return youngestCustomer;
+};
+
+const averageBalance = function(array){
+    let allBalancesSum = 0;
+    let customerNumber = 0;
+    
+    for(var i = 0; i < array.length; i++){
+        let noDollar = array[i].balance.replace('$', '');
+        let noComma = noDollar.replace(',', '')
+        allBalancesSum += parseFloat(noComma);
+        customerNumber++;
+    }
+ 
+    // console.log(allBalancesSum / customerNumber)
+    return allBalancesSum / customerNumber;
+};
 
 var firstLetterCount;
 
