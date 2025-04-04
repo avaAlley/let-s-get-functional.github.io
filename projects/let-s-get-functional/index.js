@@ -83,7 +83,20 @@ var friendsCount;
 
 var topThreeTags;
 
-var genderCount;
+var genderCount = function(array){
+    return _.reduce(array, function(accumulator, current){
+    // accumulator = {} // current = customer
+
+    // determine if current object's gender already exists in accumulator as a key
+
+        // if it does, increment it
+
+    // else it doesn't exist
+
+        // create the key and give it an initial value
+        
+    }, {})
+;};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
