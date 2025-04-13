@@ -30,11 +30,18 @@ const maleCount = function(array) {
 };
 
 
-// const femaleCount = function(array, num) {
-//     const females = _.reduce(array, customer, num){
-//         return 
-//     }
+
+// const femaleCount = function(array) {
+//     const females = _.reduce(array, function(accumulator, customer){
+//         if(customer.gender === 'female'){
+//             accumulator++;
+//             return accumulator;
+//         }
+//     }, 0)
+//     return females;
 // };
+
+
 
 const oldestCustomer = function(array){
     let oldestCustomer = '';
@@ -75,28 +82,45 @@ const averageBalance = function(array){
     return allBalancesSum / customerNumber;
 };
 
-var firstLetterCount;
+var firstLetterCount = function(array, target){
+    let targetCount = 0;
+    for(let i = 0; i < array.length; i++){
+        if(array[i].name[0].toLowerCase() === target.toLowerCase()){
+            targetCount++
+        }
+    }
+    return targetCount;
+};
 
-var friendFirstLetterCount;
+// var friendFirstLetterCount = function(array, customer, target){
+//     let friendLetterCount = 0;
+//     for(let i = 0; i < array.length; i++){
+//         if(array[])
+//     }
+// };
+
+// var friendFirstLetterCount = function(array, target){
+//     return array.reduce(accumulator=0, array, function())
+// }
 
 var friendsCount;
 
 var topThreeTags;
 
-var genderCount = function(array){
-    return _.reduce(array, function(accumulator, current){
-    // accumulator = {} // current = customer
+// var genderCount = function(array){
+//     return _.reduce(array, function(accumulator, current){
+//     // accumulator = {} // current = customer
 
-    // determine if current object's gender already exists in accumulator as a key
+//     // determine if current object's gender already exists in accumulator as a key
 
-        // if it does, increment it
+//         // if it does, increment it
 
-    // else it doesn't exist
+//     // else it doesn't exist
 
-        // create the key and give it an initial value
+//         // create the key and give it an initial value
         
-    }, {})
-;};
+//     }, {})
+// ;};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
