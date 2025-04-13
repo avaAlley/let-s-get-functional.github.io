@@ -99,13 +99,36 @@ var firstLetterCount = function(array, target){
 //     }
 // };
 
-// var friendFirstLetterCount = function(array, target){
-//     return array.reduce(accumulator=0, array, function())
-// }
+var friendFirstLetterCount = function(array, customer, target){
+    let output = 0;
+    for(let i = 0; i < array.length; i++){
+        if(array[i].name === customer){
+            for(let f = 0; f < array[i].friends.length; f++){
+                if(array[i].friends[f].name[0].toLowerCase() === target.toLowerCase()){
+                    output++
+                }
+            }
+        }
+    }
+    return output;
+}
 
-var friendsCount;
+var friendsCount = function(array, name){
+    let output = [];
 
-var topThreeTags;
+    for(let i = 0; i < array.length; i++){
+        for(let f = 0; f < array[i].friends.length; f++){
+            if(array[i].friends[f].name === name){
+                output.push(array[i].name);
+            }
+        }
+    }
+    return output;
+};
+
+var topThreeTags = function(array){
+    
+};
 
 // var genderCount = function(array){
 //     return _.reduce(array, function(accumulator, current){
