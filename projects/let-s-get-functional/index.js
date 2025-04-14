@@ -173,15 +173,32 @@ var topThreeTags = function(array){
 
 var genderCount = function(array){
     return _.reduce(array, function(accumulator, current){
-    // accumulator = {} // current = customer
+      
+      if(current.gender === 'female'){
+        if(accumulator.female){
+          accumulator.female++;
+        } else {
+          accumulator.female = 1;
+        }
+      }
+      
+      if(current.gender === 'male'){
+        if(accumulator.male){
+          accumulator.male++;
+        } else {
+          accumulator.male = 1;
+        }
+      }
+      
+      if(current.gender === 'non-binary'){
+        if(accumulator['non-binary']){
+          accumulator['non-binary']++;
+        } else {
+          accumulator['non-binary'] = 1;
+        }
+      }
 
-    // determine if current object's gender already exists in accumulator as a key
-
-        // if it does, increment it
-
-    // else it doesn't exist
-
-        // create the key and give it an initial value
+      return accumulator;
         
     }, {})
 ;};
