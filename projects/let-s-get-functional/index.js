@@ -31,15 +31,16 @@ const maleCount = function(array) {
 
 
 
-// const femaleCount = function(array) {
-//     const females = _.reduce(array, function(accumulator, customer){
-//         if(customer.gender === 'female'){
-//             accumulator++;
-//             return accumulator;
-//         }
-//     }, 0)
-//     return females;
-// };
+const femaleCount = function(array) {
+    let count = 0
+    const females = _.reduce(array, function(females, customer){
+        if(customer.gender === 'female'){
+          count++;
+          return females;
+        }
+    }, 0)
+    return count;
+};
 
 
 
@@ -127,23 +128,63 @@ var friendsCount = function(array, name){
 };
 
 var topThreeTags = function(array){
+    let allTagsArr = [];
+    let allTags = [];
+    let tagsObj = {};
+    let tagPairs = []
+    let tagCount = 0
+    let topTags = [];
+    for(let i = 0; i < array.length; i++){
+        allTagsArr.push(array[i].tags)
+    }
     
+    for(let i = 0; i < allTagsArr.length; i++){
+      allTags = allTags.concat(allTagsArr[i]);
+    }
+  
+    tagsObj = _.reduce(allTags, function(accumulator, current){
+      if(accumulator[current]){
+        accumulator[current]++;
+      } else {
+        accumulator[current] = 1
+      }
+      return accumulator;
+    }, {})
+    
+    tagPairs = Object.entries(tagsObj);
+  
+    for(let i = 0; i < tagPairs.length; i++){
+      if(tagPairs[i][1] > tagCount){
+        tagCount = tagPairs[i][1];
+      }
+    }
+    // console.log(tagCount)
+    topTags = _.reduce(tagPairs, function(accumulator, current){
+      if(current[1] === tagCount){
+         // concole.log(current[1], current)
+         accumulator.push(current[0]);
+      }
+      return accumulator;
+    }, [])
+    
+    // console.log(topTags);
+    return topTags;
 };
 
-// var genderCount = function(array){
-//     return _.reduce(array, function(accumulator, current){
-//     // accumulator = {} // current = customer
+var genderCount = function(array){
+    return _.reduce(array, function(accumulator, current){
+    // accumulator = {} // current = customer
 
-//     // determine if current object's gender already exists in accumulator as a key
+    // determine if current object's gender already exists in accumulator as a key
 
-//         // if it does, increment it
+        // if it does, increment it
 
-//     // else it doesn't exist
+    // else it doesn't exist
 
-//         // create the key and give it an initial value
+        // create the key and give it an initial value
         
-//     }, {})
-// ;};
+    }, {})
+;};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
